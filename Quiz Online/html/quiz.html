@@ -1,0 +1,39 @@
+<div class="row" ng-show="test">
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-6 text-end">
+            <h2 class="bi bi-stopwatch"> {{counter | counter | date:'mm:ss'}}</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a ng-click="finishTest()" class="btn btn-primary">Kết thúc bài thi</a>
+        </div>
+    </div>
+    <div class="card border-secondary" style="margin-top: 15px; height: 500px;" ng-repeat="q in ques | limitTo: 1 : begin">
+        <div class="card-header bg-transparent border-secondary">
+            <h5 class="card-text">{{numQues}}. {{q.Text}}</h5>
+        </div>
+        <div class="card-body">
+            <div class="form-check" ng-repeat="an in q.Answers">
+                <input class="form-check-input" type="radio" name="Radio" id="{{an.Id}}" ng-value="{{an.Id}}" ng-model="selectAns[indexAns]">
+                <label class="form-check-label" for="{{an.Id}}">{{an.Text}}</label>
+            </div>
+        </div>
+        <div class="row card-footer bg-transparent border-secondary">
+            <div class="col-md-8" style="margin-bottom: 5px;">
+                <a ng-click="prev()" class="btn btn-secondary">Prev</a>
+                <a ng-click="next()" class="btn btn-secondary">Next</a>
+            </div>
+            <div class="col-md-4">
+                <a ng-click="selectQues(1)" class="btn btn-outline-primary btn-sm">1</a>
+                <a ng-click="selectQues(2)" class="btn btn-outline-primary btn-sm">2</a>
+                <a ng-click="selectQues(3)" class="btn btn-outline-primary btn-sm">3</a>
+                <a ng-click="selectQues(4)" class="btn btn-outline-primary btn-sm">4</a>
+                <a ng-click="selectQues(5)" class="btn btn-outline-primary btn-sm">5</a>
+                <a ng-click="selectQues(6)" class="btn btn-outline-primary btn-sm">6</a>
+                <a ng-click="selectQues(7)" class="btn btn-outline-primary btn-sm">7</a>
+                <a ng-click="selectQues(8)" class="btn btn-outline-primary btn-sm">8</a>
+                <a ng-click="selectQues(9)" class="btn btn-outline-primary btn-sm">9</a>
+                <a ng-click="selectQues(10)" class="btn btn-outline-primary btn-sm">10</a>
+            </div>
+        </div>
+    </div>
+</div>

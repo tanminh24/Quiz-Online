@@ -1,0 +1,93 @@
+<div ng-controller="signUpCtrl">
+    <form class="col-md-5 mx-auto" name="formSignUp">
+        <div class="text-center">
+            <h1>Đăng ký</h1>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Tên đăng nhập</label>
+            <div class="col-sm-8">
+                <input ng-model="student.username" name="username" class="form-control" aria-describedby="userHelp" required minlength="3">
+                <small ng-show="formSignUp.username.$error.required" class="form-text text-danger">Vui lòng nhập username</small>
+                <small ng-show="formSignUp.username.$invalid && !formSignUp.username.$error.required" class="form-text text-danger">Username ít nhất 3 kí tự</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Họ và tên</label>
+            <div class="col-sm-8">
+                <input ng-model="student.fullname" name="fullname" class="form-control" aria-describedby="userHelp" required>
+                <small ng-show="formSignUp.fullname.$error.required" class="form-text text-danger">Vui lòng nhập họ tên</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label" style="margin-right: 15px;">Giới tính</label>
+            <div class="col-sm-7">
+                <div class="col-sm-2 form-check form-check-inline" style="margin-top: 5px;">
+                    <input ng-model="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" ng-value="true">
+                    <label class="form-check-label" for="inlineRadio1">Nam</label>
+                </div>
+                <div class="col-sm-2 form-check form-check-inline">
+                    <input ng-model="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" ng-value="false">
+                    <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-4">
+                <span>Ngày sinh</span>
+                <input ng-model="day" name="day" class="form-control" type="number" required min="1" max="31">
+                <small ng-show="formSignUp.day.$error.required" class="form-text text-danger">Không để trống ngày sinh</small>
+                <small ng-show="formSignUp.day.$invalid && !formSignUp.day.$error.required" class="form-text text-danger">Ngày sinh từ 1-31</small>
+            </div>
+            <div class="col-sm-4">
+                <span>Tháng sinh</span>
+                <input ng-model="month" name="month" class="form-control" type="number" required min="1" max="12">
+                <small ng-show="formSignUp.month.$error.required" class="form-text text-danger">Không để trống tháng sinh</small>
+                <small ng-show="formSignUp.month.$invalid && !formSignUp.month.$error.required" class="form-text text-danger">Tháng sinh từ 1-12</small>
+            </div>
+            <div class="col-sm-4">
+                <span>Năm sinh</span>
+                <input ng-model="year" name="year" class="form-control" type="number" required min="1922" max="2022">
+                <small ng-show="formSignUp.year.$error.required" class="form-text text-danger">Không để trống năm sinh</small>
+                <small ng-show="formSignUp.year.$invalid && !formSignUp.year.$error.required" class="form-text text-danger">Năm sinh từ 1922-2022</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input ng-model="student.email" name="email" class="form-control" type="email" aria-describedby="emailHelp" required>
+                <small ng-show="formSignUp.email.$error.required" class="form-text text-danger">Vui lòng nhập email</small>
+                <small ng-show="formSignUp.email.$invalid && !formSignUp.email.$error.required" class="form-text text-danger">Email không đúng định dạng</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Mật khẩu</label>
+            <div class="col-sm-8">
+                <input ng-model="student.password" name="password" type="password" class="form-control" aria-describedby="passHelp" required minlength="6">
+                <small ng-show="formSignUp.password.$error.required" class="form-text text-danger">Vui lòng nhập mật khẩu</small>
+                <small ng-show="formSignUp.password.$invalid && !formSignUp.password.$error.required" class="form-text text-danger">Mật khẩu ít nhất 6 kí tự</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Xác nhận mật khẩu</label>
+            <div class="col-sm-8">
+                <input ng-model="repassword" name="repassword" type="password" class="form-control" aria-describedby="passHelp" required minlength="6" re-pass>
+                <small ng-show="formSignUp.repassword.$error.required" class="form-text text-danger">Vui lòng xác nhận mật khẩu</small>
+                <small ng-show="formSignUp.repassword.$invalid && !formSignUp.repassword.$error.required" class="form-text text-danger">Mật khẩu xác nhận không khớp</small>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Học phí</label>
+            <div class="col-sm-8">
+                <input ng-model="student.schoolfee" name="schoolfee" class="form-control" type="number" required min="1000000">
+                <small ng-show="formSignUp.schoolfee.$error.required" class="form-text text-danger">Vui lòng nhập học phí</small>
+                <small ng-show="formSignUp.schoolfee.$invalid && !formSignUp.schoolfee.$error.required" class="form-text text-danger">Học phí phải lớn hơn 1000000</small>
+            </div>
+        </div>
+
+        <div class="row text-end">
+            <div class="col-md-12">
+                <button ng-click="signUp()" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="row" ng-controller="subjectCtrl">
+    <div class="card" ng-show="!test">
+        <div class="row card-body">
+            <div class="col-md-4">
+                <img src="../images/logos/{{subject.Logo}}" class="img-fluid" style="height: 290px">
+            </div>
+            <div class="col-md-8">
+                <h1 class="card-title">{{subject.Name}}</h1>
+                <ul>
+                    <li>Bài thi môn {{subject.Name}} bao gồm <b>10</b> câu hỏi trong <b>15</b> phút.</li>
+                    <li>Mỗi câu hỏi có <b>4</b> đáp án và chỉ có <b>1</b> đáp án đúng.</li>
+                    <li>Nội dung bài thi giới hạn trong chương trình học.</li>
+                    <li>Sinh viên <b>không</b> được làm lại sau khi ấn kết thúc bài thi hoặc hết giờ.</li>
+                </ul>
+                <a ng-click="start()" class="btn btn-primary" ng-show="finishTest">Bắt đầu làm bài</a>
+                <div ng-show="!finishTest" class="text-danger">
+                    <h2>Điểm: {{testMark}}/10</h2>
+                    <h6>Thời gian bắt đầu: {{timeStart | date : 'HH:mm:ss dd/MM/yyyy'}}</h6>
+                    <h6>Thời gian kết thúc: {{timeFinish | date : 'HH:mm:ss dd/MM/yyyy'}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include="'quiz.html'"></div>
+</div>

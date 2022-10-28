@@ -1,0 +1,60 @@
+<div ng-controller="updateAccountCtrl">
+    <form class="col-md-4 mx-auto" name="formUpdateAccount">
+        <h1>Cập nhật tài khoản</h1>
+        <div class="mb-3">
+            <label class="form-label">Họ và tên</label>
+            <input ng-model="fullname" name="fullname" class="form-control" aria-describedby="userHelp" required>
+            <small ng-show="formUpdateAccount.fullname.$error.required" class="form-text text-danger">Vui lòng nhập họ tên</small>
+        </div>
+        <label class="form-label">Giới tính</label>
+        <div class="mb-3">
+            <div class="form-check form-check-inline">
+                <input ng-model="user.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">
+                <label class="form-check-label" for="inlineRadio1">Nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input ng-model="user.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">
+                <label class="form-check-label" for="inlineRadio2">Nữ</label>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-4">
+                <span>Ngày sinh</span>
+                <input ng-model="day" ng-value="day" name="day" class="form-control" type="number" required min="1" max="31">
+                <small ng-show="formUpdateAccountp.day.$error.required" class="form-text text-danger">Không để trống ngày sinh</small>
+                <small ng-show="formUpdateAccount.day.$invalid && !formUpdateAccount.day.$error.required" class="form-text text-danger">Ngày sinh từ 1-31</small>
+            </div>
+            <div class="col-sm-4">
+                <span>Tháng sinh</span>
+                <input ng-model="month" ng-value="month" name="month" class="form-control" type="number" required min="1" max="12">
+                <small ng-show="formUpdateAccount.month.$error.required" class="form-text text-danger">Không để trống tháng sinh</small>
+                <small ng-show="formUpdateAccount.month.$invalid && !formUpdateAccount.month.$error.required" class="form-text text-danger">Tháng sinh từ 1-12</small>
+            </div>
+            <div class="col-sm-4">
+                <span>Năm sinh</span>
+                <input ng-model="year" ng-value="year" name="year" class="form-control" type="number" required min="1900" max="2022">
+                <small ng-show="formUpdateAccount.year.$error.required" class="form-text text-danger">Không để trống năm sinh</small>
+                <small ng-show="formUpdateAccount.year.$invalid && !formUpdateAccount.year.$error.required" class="form-text text-danger">Năm sinh từ 1922-2022</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input ng-model="email" name="email" class="form-control" type="email" aria-describedby="emailHelp" required>
+            <small ng-show="formUpdateAccount.email.$error.required" class="form-text text-danger">Vui lòng nhập email</small>
+            <small ng-show="formUpdateAccount.email.$invalid && !formUpdateAccount.email.$error.required" class="form-text text-danger">Email không đúng định dạng</small>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Học phí</label>
+            <input ng-model="schoolfee" name="schoolfee" class="form-control" type="number" required min="1000000">
+            <small ng-show="formUpdateAccount.schoolfee.$error.required" class="form-text text-danger">Vui lòng nhập học phí</small>
+            <small ng-show="formUpdateAccount.schoolfee.$invalid && !formUpdateAccount.schoolfee.$error.required" class="form-text text-danger">Học phí phải lớn hơn 1000000</small>
+        </div>
+
+        <div class="row text-end">
+            <div class="col-md-12">
+                <button ng-click="updateAccount()" type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+</div>

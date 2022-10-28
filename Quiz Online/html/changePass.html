@@ -1,0 +1,29 @@
+<div ng-controller="changePassCtrl">
+    <form class="col-md-4 mx-auto" name="formChangePass">
+        <div class="text-center">
+            <h1>Đổi mật khẩu</h1>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mật khẩu cũ</label>
+            <input ng-model="oldPassword" name="oldPassword" type="password" class="form-control" aria-describedby="passHelp" required>
+            <small ng-show="formChangePass.oldPassword.$error.required" class="form-text text-danger">Vui lòng nhập mật khẩu cũ</small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mật khẩu mới</label>
+            <input ng-model="newPassword" name="newPassword" type="password" class="form-control" aria-describedby="passHelp" required minlength="6">
+            <small ng-show="formChangePass.newPassword.$error.required" class="form-text text-danger">Vui lòng nhập mật khẩu mới</small>
+            <small ng-show="formChangePass.newPassword.$invalid && !formChangePass.newPassword.$error.required" class="form-text text-danger">Mật khẩu ít nhất 6 kí tự</small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Xác nhận mật khẩu</label>
+            <input ng-model="reNewPassword" name="reNewPassword" type="password" class="form-control" aria-describedby="passHelp" required minlength="6" re-newpass>
+            <small ng-show="formChangePass.reNewPassword.$error.required" class="form-text text-danger">Vui lòng nhập mật khẩu mới</small>
+            <small ng-show="formChangePass.reNewPassword.$invalid && !formChangePass.reNewPassword.$error.required" class="form-text text-danger">Mật khẩu xác nhận không khớp</small>
+        </div>
+        <div class="row text-end">
+            <div class="col-md-12">
+                <button ng-click="changePass()" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

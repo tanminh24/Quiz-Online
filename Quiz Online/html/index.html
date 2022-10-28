@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="icon" href="../images/logo.png">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- js -->
+    <script src="../js/myApp.js"></script>
+    <script src="../js/menuCtrl.js"></script>
+    <script src="../js/listSubjectsCtrl.js"></script>
+    <script src="../js/subjectCtrl.js"></script>
+    <script src="../js/logInCtrl.js"></script>
+    <script src="../js/signUpCtrl.js"></script>
+    <script src="../js/changePassCtrl.js"></script>
+    <script src="../js/updateAccount.js"></script>
+    <script src="../js/forgetPassCtrl.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <nav ng-include="'layouts/menu.html'" class="navbar navbar-expand-lg navbar-light bg-light fixed-top"></nav>
+    <div ng-include="'layouts/banner.html'" class="row banner"></div>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+    <footer ng-include="'layouts/footer.html'"></footer>
+</body>
+
+</html>

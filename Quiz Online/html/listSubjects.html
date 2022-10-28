@@ -1,0 +1,47 @@
+<div class="row" ng-controller="listSubjectsCtrl">
+    <article class="col-md-9">
+        <div class="row">
+            <div class="col-sm-4" ng-repeat="sj in listSubjects | limitTo: 9 : begin">
+                <div class="card text-center">
+                    <div class="card-heading" style="padding: 10px;">
+                        <a ng-click="checkU(sj)" href=""><img src="../images/logos/{{sj.Logo}}"></a>
+                    </div>
+                    <div class="card-body">
+                        <a ng-click="checkU(sj)">
+                            <h6 class="card-title">{{sj.Name}}</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a ng-click="first()" class="page-link bi bi-chevron-double-left"></a>
+                    </li>
+                    <li class="page-item">
+                        <a ng-click="prev()" class="page-link bi bi-chevron-left"></a>
+                    </li>
+                    <li class="page-item">
+                        <button type="button" class="btn disabled">{{page}}/{{count}}</button>
+                    </li>
+                    <li class="page-item">
+                        <a ng-click="next()" class="page-link bi bi-chevron-right"></a>
+                    </li>
+                    <li class="page-item">
+                        <a ng-click="last()" class="page-link bi bi-chevron-double-right"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </article>
+    <aside class="col-md-3">
+        <div class="card-header">
+            <b class="bi bi-box"> DANH MỤC MÔN HỌC</b>
+        </div>
+        <div ng-repeat="sj in listSubjects">
+            <a ng-click="checkU(sj)" type="button" class="list-group-item list-group-item-action">{{sj.Name}}</a>
+        </div>
+    </aside>
+</div>
